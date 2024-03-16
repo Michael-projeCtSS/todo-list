@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
          newDate.querySelector('input[type="date"]').min = currentDate;
          newDate.querySelector('input[type="date"]').max = '9999-12-31';
 
+         let dateInput = newDate.querySelector('input[type="date"]');
+         dateInput.addEventListener('change', function(event) {
+            dateInput.disabled = true;
+         });
 
          let newQuestDiv = document.createElement('div');
          newQuestDiv.classList.add('col-sm-6', 'p-3', 'text-wrap');
@@ -70,11 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
          let newRemove = document.createElement('div');
          newRemove.classList.add('col-sm-1', 'text-center','p-2', 'justify-content-center',);
-         newRemove.innerHTML = '<button class="btn btn-danger btn-outline-light">Usuń</button>';
-
+         newRemove.innerHTML = '<button class="btn btn-success btn-outline-light">Zakończ</button>';
+         newRemove.addEventListener('click', (e) => {
+            e.preventDefault();
+            let finished = e.target.parentNode.parentNode;
+            finished.classList.replace('for-bird', 'for-bird-complete');
+            finished.innerHTML = `<span class="h1 mt5 text-uppercase text-light" id="tmp-bird">Zaliczone!</span>`
+            document.getElementById('tmp-bird').id = 'bird';
+            setTimeout((e)=>{
+               finished.remove();
+               if(document.getElementById('quests').childElementCount === 0) document.querySelector('#panel').classList.remove('border-bottom');
+            }, 950);
+         })
 
          let row = document.createElement('div');
-         row.classList.add('row', 'justify-content-center', 'mt-2', 'd-flex', 'align-items-center', 'border-bottom', 'p-1', 'position-relative');
+         row.classList.add('for-bird', 'row', 'justify-content-center', 'mt-2', 'd-flex', 'align-items-center', 'border-bottom', 'p-1', 'position-relative');
          row.innerHTML = `<div id="move-div"><span class="move-panel move-up">▲</span><br><span class="move-panel move-down">▼</span></div>`;
          row.appendChild(newDate);
          row.appendChild(newQuestDiv);

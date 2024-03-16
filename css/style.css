@@ -71,6 +71,10 @@
     text-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
 }
 
+.position-custom{
+    left: 80%;
+    top: 20%;
+}
 
 @keyframes gw-animation {
     0% {

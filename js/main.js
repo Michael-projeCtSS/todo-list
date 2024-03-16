@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
          newItem.classList.add('lead', 'display-3', 'mt5', 'text-uppercase', 'text-danger');
          newItem.innerText = "Nie wpisałeś żadnego zadania!";
          quests.parentNode.insertBefore(newItem, quests);
+         setTimeout(() => {
+            newItem.remove();
+         }, 1000)
       } else if (addTask.value.trim() !== "") {
          if (document.getElementById('temporary')) document.getElementById('temporary').remove();
          if(!document.getElementById('exist')) {
@@ -74,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
          let newRemove = document.createElement('div');
          newRemove.classList.add('col-sm-1', 'text-center','p-2', 'justify-content-center',);
-         newRemove.innerHTML = '<button class="btn btn-success btn-outline-light">Zakończ</button>';
+         newRemove.innerHTML = '<button class="btn btn-success btn-outline-light position-absolute position-custom">Zakończ</button>';
          newRemove.addEventListener('click', (e) => {
             e.preventDefault();
             let finished = e.target.parentNode.parentNode;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organizer Zadań — Michał Gomółka</title>
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/bootstrap.esm.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+</head>
+<body class="text-light text-center" id="background-fade">
+    <div id="background">
+        <header class="container" >
+            <h1 class="mt5 h1 text-success">Twój własny organizer zadań</h1>
+        </header>
+        <main>
+            <div class="col-12 container" id="panel">
+                <label for="add-task" class="pointer-event display-6 lead">Wpisz swoje zadanie: </label>
+                <input placeholder="Wpisz zadanie" name="adding-task" class="form-control-sm form-control-lg me-1 mt-1" id="add-task">
+                <button class="btn btn-outline-light btn-success btn-lg btn-block mb-2" id="getData">Dodaj</button>
+            </div>
+            <div id="quests" class="col-12 container">
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
